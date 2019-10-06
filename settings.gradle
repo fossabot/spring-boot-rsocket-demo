@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/snapshot' }
+        gradlePluginPortal()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'org.springframework.boot') {
+                useModule("org.springframework.boot:spring-boot-gradle-plugin:${requested.version}")
+            }
+        }
+    }
+}
+rootProject.name = 'spring-boot-rsocket-demo'
+include 'web-api'
+include 'account:account-entity'
+include 'account:account-api'
+include 'board:board-entity'
+include 'board:board-api'
